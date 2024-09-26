@@ -1,0 +1,57 @@
+@page {
+    size: A4;
+    margin: 2cm;
+    line-height: 1.3;
+    background: #ffffff !important;
+
+    @top-left {
+      font-family: 'Helvetica', 'Arial', sans-serif;
+      font-size: 9pt;
+      color: #999999;
+      content: "Testing Strategy";
+    }
+
+    @top-right {
+      font-family: 'Helvetica', 'Arial', sans-serif;
+      font-size: 9pt;
+      color: #999999;
+      content: "Sualeh Fatehi";
+    }
+
+    @bottom-right {
+      font-family: 'Helvetica', 'Arial', sans-serif;
+      font-size: 12pt;
+      color: #999999;
+      content: counter(page);
+    }
+}
+
+body {
+    column-count: 1;
+    column-gap: 1cm;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 12pt;
+}
+
+/*
+header, footer {
+    display: none;
+}
+*/
+
+.toc {
+    font-size: 0.9em;
+    margin-bottom: 2em;
+}
+
+.toc h1, .toc h2, .toc h3 {
+    margin: 0.5em 0;
+}
+
+h1, h2 {
+  break-before: always;
+}
+
+div {
+  widows: 5;
+}

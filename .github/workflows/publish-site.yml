@@ -1,0 +1,112 @@
+name: Build and Deploy Document
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build Document
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - id: checkout-code
+      name: Checkout
+      uses: actions/checkout@v4
+
+    - id: setup-node
+      name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: "20"
+
+    - id: setup-python
+      name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    - id: install-pandoc
+      name: Install pandoc
+      uses: pandoc/actions/setup@1c372db91e969970baaae76213bd14c1aed61c8f
+      with:
+        version: "3.4"
+
+    - id: install-mermaid-filter
+      name: Install mermaid Filter
+      shell: bash
+      run: |
+        # Install mermaid Filter
+        npm install --global mermaid-filter
+
+    - id: install-weasyprint
+      name: Install WeasyPrint
+      shell: bash
+      run: |
+        # Install WeasyPrint
+        sudo apt-get update -qq
+        sudo apt-get install -qq -y libxml2-dev libxslt-dev libffi-dev libcairo2-dev libpango1.0-dev
+        pip install WeasyPrint
+        weasyprint --version
+
+    - id: pandoc-convert
+      name: Convert Markdown to PDF
+      shell: bash
+      run: |
+        # Convert Markdown to PDF
+        mkdir -p ./Document/bin
+        pandoc -v
+        pandoc \
+        --verbose \
+        -F mermaid-filter \
+        --listings \
+        --css=stylesheet.css \
+        -t html \
+        --pdf-engine=weasyprint \
+        --metadata=title:"Testing Strategy" \
+        --toc \
+        --toc-depth=2 \
+        testing-strategy.md \
+        --output=./Document/bin/testing-strategy.pdf
+
+    - id: generate-index-html
+      name: Generate site index
+      shell: bash
+      run: |
+        # Generate site index
+        python ./.github/scripts/generate_index_html.py ./Document/bin
+
+    - id: upload-artifact
+      name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: ./Document/bin
+
+
+  deploy:
+    name: Deploy Website
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy-pages.outputs.page_url }}
+    needs: build
+
+    steps:
+
+    - id: configure-pages
+      name: Setup Pages
+      uses: actions/configure-pages@v5
+
+    - id: deploy-pages
+      name: Deploy to GitHub Pages
+      uses: actions/deploy-pages@v4
