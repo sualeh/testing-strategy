@@ -29,7 +29,7 @@ title: Unit Testing
 %%{init: {'theme':'neutral'}}%%
 flowchart LR
     I("Input Parameters
-       With Mocks")
+       (with mocks)")
     M["Method
        Under Test"]
     O("Output")
