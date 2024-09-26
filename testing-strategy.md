@@ -129,7 +129,8 @@ Integration tests are run as part of the Continuous Integration (CI) process, or
 
 End-to-end (E2E) testing comprehensively validates the application's workflow from initiation to completion. End-to-end tests simulate real user scenarios, ensuring that the entire application stack, including the frontend, backend, and any external integrations, work together as expected. This type of testing is crucial for identifying issues that may not be apparent in isolated unit or integration tests, such as data flow problems and configuration issues.
 
-End-to-end tests should be used judiciously due to their complexity and resource requirements. It is essential to prioritize critical user journeys and high-risk areas of the application to ensure that the most important functionalities are thoroughly tested.
+End-to-end tests should be used judiciously due to their complexity and resource requirements. It is essential to prioritize critical user journeys and high-risk areas of the application to ensure that the most important functionalities are thoroughly tested. These tests typically run in a production-like staging environment to mimic real-world conditions as closely as possible.
+
 
 ```mermaid
 ---
