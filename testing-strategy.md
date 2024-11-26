@@ -364,7 +364,7 @@ Some representative technologies are:
 - [DiffBlue](https://www.diffblue.com/diffblue-cover/)
 
 
-## Mutation Testing
+### Mutation Testing
 
 Software testing helps to ensure functionality and stability of software. However, ensuring the sufficiency of these tests is important. To ensure tests are comprehensive, teams create detailed test plans, measure code coverage, and implement mutation testing. Mutation testing, in particular, assesses the quality of existing tests.
 
