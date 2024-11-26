@@ -343,6 +343,15 @@ Some representative technologies are:
 - [sonarqube](https://www.sonarsource.com/products/sonarqube/)
 
 
+### Metrics for Test Effectiveness
+
+While code coverage is a valuable metric for unit tests, higher levels of testing, such as integration tests, system tests, and acceptance tests, require different metrics to ensure comprehensive coverage. Here are some thoughts on metrics that can help assess the effectiveness of these higher levels of testing:
+
+- **Defect Density**: Measures the number of defects found per unit of code or functionality. It can help identify areas with higher defect rates that may need more thorough testing.
+- **Test Case Effectiveness**: Evaluates how well test cases are able to detect defects. This can be measured by the number of defects found versus the number of test cases executed.
+- **Test Automation Coverage**: Measures the percentage of test cases that are automated versus manual. Higher automation coverage can lead to more efficient and consistent testing.
+
+
 ### Test Case Management
 
 Test case management software allows development teams to effectively organize, maintain, and manage test cases. These test cases are essential for verifying that a system meets specified requirements and functions correctly. They are designed to be clear and detailed, ensuring that any new team member can easily execute them.
