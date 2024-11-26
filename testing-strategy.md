@@ -377,8 +377,6 @@ Some representative technologies are:
 
 Software testing helps to ensure functionality and stability of software. However, ensuring the sufficiency of these tests is important. To ensure tests are comprehensive, teams create detailed test plans, measure code coverage, and implement mutation testing. Mutation testing, in particular, assesses the quality of existing tests.
 
-Mutation testing is based on two hypotheses: the competent programmer hypothesis, which assumes software faults are due to small syntactic errors, and the coupling effect, which posits that simple faults can lead to more complex emergent faults.
-
-Mutation testing involves introducing small random code changes called mutants. Tests are run against these mutants; if any test fails, the mutant is killed, indicating sufficient testing. If all tests pass, the mutant lives, revealing gaps in the test coverage.
+Mutation testing is based on two hypotheses: the competent programmer hypothesis, which assumes software faults are due to small syntactic errors, and the coupling effect, which posits that simple faults can lead to more complex emergent faults. This testing involves introducing small random code changes called mutants. Tests are run against these mutants; if any test fails, the mutant is killed, indicating sufficient testing. If all tests pass, the mutant lives, revealing gaps in the test coverage.
 
 Mutation testing often is not widely adopted due to the significant computational resources it demands. For this reason, it is most effective when applied to smaller, incremental changes within a codebase.
