@@ -351,6 +351,7 @@ While code coverage is a valuable metric for unit tests, higher levels of testin
 - **Test Case Effectiveness**: Evaluates how well test cases are able to detect defects. This can be measured by the number of defects found versus the number of test cases executed.
 - **Test Automation Coverage**: Measures the percentage of test cases that are automated versus manual. Higher automation coverage can lead to more efficient and consistent testing.
 
+(See [Sufficient Software Tests Using Metrics](sufficient-software-tests-using-metrics.md))
 
 ### Test Case Management
 
